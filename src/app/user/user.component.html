@@ -1,0 +1,39 @@
+<div class="head">
+    <div class="d-flex justify-content-between">
+        <span class="fs-24 fw-semibold mb-3">User List</span>
+        <input class="custom-search" type="text" pInputText [(ngModel)]="text" placeholder="Search by name/email"
+            (keyup)="search()" />
+    </div>
+    <div class="card-box">
+
+        <ng-container *ngTemplateOutlet="tab1"></ng-container>
+
+        <ng-template #tab1>
+            <p-table [value]="users" [scrollable]="true" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[5, 10, 20]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th class="fs-14 text-center">Name</th>
+                        <th class="fs-14 text-center">Username</th>
+                        <th class="fs-14 text-center">Email</th>
+                        <th class="fs-14 text-center">Phone No</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr class="table-row">
+                        <td class="fs-14 text-center">{{ user.name }}</td>
+                        <td class="fs-14 text-center">{{ user.username }}</td>
+                        <td class="fs-14 text-center">{{ user.email }}</td>
+                        <td class="fs-14 text-center">{{ user.phone }}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorleft">
+                    <p-button type="button" styleClass="p-button-text"></p-button>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                    <p-button type="button" styleClass="p-button-text"></p-button>
+                </ng-template>
+            </p-table>
+        </ng-template>
+    </div>
+</div>

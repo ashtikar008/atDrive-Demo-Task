@@ -1,0 +1,42 @@
+<div class="app">
+  <div class="main">
+
+    <!-- Desktop Header -->
+    <div class="sideBar">
+      <div class="sideMenu">
+        <div class="logo">
+          <h5> DEMO </h5>
+        </div>
+        <div class=" menu">
+          <div class="list">
+
+            <!-- Menu List -->
+            <div class="menuItem" [routerLink]="['/Dashbord']" (click)="tabSelected(1)"
+              [ngClass]="{'selecte' : 1 == selectIndex , 'selected': 1 == selectIndex}" routerLinkActive="active">
+              <div class="d-grid">
+                <span class="material-symbols-outlined">package</span>
+                <span class="menuName"> Dashbord </span>
+              </div>
+            </div>
+            <div class="menuItem" [routerLink]="['/User']" (click)="tabSelected(2)"
+              [ngClass]="{'selecte' : 2 == selectIndex, 'selected': 2 == selectIndex}" routerLinkActive="active">
+              <div class="d-grid">
+                <span class="material-symbols-outlined">group</span>
+                <span class="menuName"> Users </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Desktop Header -->
+
+    <div class="rightSide">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
